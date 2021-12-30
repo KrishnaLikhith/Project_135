@@ -1,15 +1,16 @@
 alarm = "";
 status = "";
 objects = "";
-function preload() {
-    
+function preload() {  
     myvideo.hide();
 }
 function setup() {
     canvas = createCanvas(480, 380);
     canvas.center();
-
-
+    video = createCapture(VIDEO);
+    video.size(380,380);
+    video.hide();
+   
 }
 function draw() {
     image(myvideo, 0, 0, 480, 380);
@@ -39,9 +40,7 @@ function start() {
 function modelLoaded() {
     console.log("Model is Loaded");
     status = true;
-    myvideo.loop();
-    myvideo.volume(0);
-    myvideo.rate(1);
+   
 }
 function gotPosses(error, results) {
     if (error) {
